@@ -1,8 +1,8 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { HeaderStubComponent } from './shared/components/header/header.component';
-import { VerticalNavStubComponent } from './shared/components/vertical-nav/vertical-nav.component';
+import { HeaderStubComponent } from '@components/header/header.component';
+import { VerticalNavStubComponent } from '@components/vertical-nav/vertical-nav.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
