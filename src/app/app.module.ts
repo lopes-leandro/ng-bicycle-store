@@ -8,8 +8,8 @@ import { ClarityModule } from '@clr/angular';
 
 import '@cds/core/icon/register'
 import { ClarityIcons, userIcon, bicycleIcon, homeIcon, detailsIcon, boltIcon, certificateIcon, storeIcon, factoryIcon, shoppingBagIcon } from '@cds/core/icon';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { VerticalNavComponent } from './shared/components/vertical-nav/vertical-nav.component';
+import { HeaderComponent } from '@components/header/header.component';
+import { VerticalNavComponent } from '@components/vertical-nav/vertical-nav.component';
 
 const icons = [
   userIcon,
