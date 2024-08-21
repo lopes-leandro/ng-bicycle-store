@@ -7,14 +7,18 @@ import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
 
 import '@cds/core/icon/register'
-import { ClarityIcons, userIcon, bicycleIcon, homeIcon, detailsIcon } from '@cds/core/icon';
+import { ClarityIcons, userIcon, bicycleIcon, homeIcon, detailsIcon, boltIcon, certificateIcon, storeIcon, factoryIcon, shoppingBagIcon } from '@cds/core/icon';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { VerticalNavComponent } from './shared/components/vertical-nav/vertical-nav.component';
 
 const icons = [
   userIcon,
   bicycleIcon,
   homeIcon,
-  detailsIcon
+  detailsIcon,
+  boltIcon,
+  certificateIcon,
+  storeIcon, factoryIcon, shoppingBagIcon
 ]
 
 @NgModule({
@@ -27,7 +31,8 @@ const icons = [
     BrowserAnimationsModule,
     ClarityModule,
     AppRoutingModule,
-    HeaderComponent
+    HeaderComponent,
+    VerticalNavComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

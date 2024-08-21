@@ -9,7 +9,7 @@ const icons = [
   userIcon,
   bicycleIcon,
   homeIcon,
-  detailsIcon
+  detailsIcon,
 ]
 const selector = 'app-header';
 
