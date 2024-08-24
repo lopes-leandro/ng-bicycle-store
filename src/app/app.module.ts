@@ -7,7 +7,22 @@ import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
 
 import '@cds/core/icon/register'
-import { ClarityIcons, userIcon, bicycleIcon, homeIcon, detailsIcon, boltIcon, certificateIcon, storeIcon, factoryIcon, shoppingBagIcon } from '@cds/core/icon';
+import {
+  ClarityIcons,
+  userIcon,
+  bicycleIcon,
+  homeIcon,
+  detailsIcon,
+  boltIcon,
+  certificateIcon,
+  storeIcon,
+  factoryIcon,
+  shoppingBagIcon,
+  undoIcon,
+  checkIcon,
+  formIcon,
+  plusIcon
+} from '@cds/core/icon';
 import { HeaderComponent } from '@components/header/header.component';
 import { VerticalNavComponent } from '@components/vertical-nav/vertical-nav.component';
 
@@ -18,13 +33,19 @@ const icons = [
   detailsIcon,
   boltIcon,
   certificateIcon,
-  storeIcon, factoryIcon, shoppingBagIcon
+  storeIcon,
+  factoryIcon,
+  shoppingBagIcon,
+  undoIcon,
+  checkIcon,
+  plusIcon,
+  formIcon
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -41,4 +62,4 @@ export class AppModule {
   constructor() {
     ClarityIcons.addIcons(...icons)
   }
- }
+}
