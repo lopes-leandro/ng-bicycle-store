@@ -1,0 +1,22 @@
+<h2>Lista de Categorias</h2>
+<button class="btn btn-icon" aria-label="Nova Categoria" [routerLink]="['/categorias/criar']">
+    <cds-icon shape="plus"></cds-icon>
+    Nova Categoria
+</button>
+<clr-datagrid>
+    <clr-dg-column>Nome</clr-dg-column>
+    <!-- <clr-dg-column>Creation date</clr-dg-column> -->
+
+    <clr-dg-row *ngFor="let category of categories$">
+        <clr-dg-action-overflow>
+            <button class="action-item" [routerLink]="['/categorias/editar', category.id]">
+                <cds-icon shape="form"></cds-icon>
+                Editar
+            </button>
+        </clr-dg-action-overflow>
+        <clr-dg-cell>{{category.name}}</clr-dg-cell>
+        <!-- <clr-dg-cell>{{category.creation | date}}</clr-dg-cell> -->
+    </clr-dg-row>
+
+    <clr-dg-footer *ngIf="categories$">{{categories$.length}} categorias</clr-dg-footer>
+</clr-datagrid>
