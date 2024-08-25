@@ -1,0 +1,23 @@
+<h2>{{title}}</h2>
+<form clrForm clrLayout="horizontal" clrLabelSize="2" [formGroup]="formBrand" (ngSubmit)="onSubmit()">
+    <span class="clr-required-mark">Informação Requerida</span>
+    <clr-input-container *ngIf="isVisibleControlId">
+        <label class="clr-required-mark">Id</label>
+        <input clrInput formControlName="id" />
+    </clr-input-container>
+    <clr-input-container>
+        <label class="clr-required-mark">Marca</label>
+        <input clrInput formControlName="name" placeholder="Digite a marca" />
+        <!-- <clr-control-helper>Nome da categoria do produto</clr-control-helper> -->
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+        <clr-control-error *clrIfError="'minlength'; error as err">
+            Deve ter no mínimo {{ err.requiredLength }} caracteres
+        </clr-control-error>
+    </clr-input-container>
+    <button class="btn btn-primary" type="submit" [disabled]="isDisabledButtonSubmit">
+        <cds-icon shape="check"></cds-icon>
+        SALVAR</button>
+    <button class="btn btn-warning-outline" type="button" [routerLink]="['/marcas']">
+        <cds-icon shape="undo"></cds-icon>
+        CANCELAR</button>
+</form>
