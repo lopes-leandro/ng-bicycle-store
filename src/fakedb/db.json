@@ -1,0 +1,230 @@
+{
+  "categories": [
+    {
+      "id": 10,
+      "description": "Acessórios"
+    },
+    {
+      "id": 20,
+      "description": "Alavancas"
+    },
+    {
+      "id": 30,
+      "description": "Amortecedores"
+    },
+    {
+      "id": 40,
+      "description": "Avanços"
+    },
+    {
+      "id": 50,
+      "description": "Movimento Central"
+    },
+    {
+      "id": 60,
+      "description": "Clips Pedal"
+    },
+    {
+      "id": 70,
+      "description": "Freios"
+    },
+    {
+      "id": 80,
+      "description": "Suportes de Garrafa"
+    },
+    {
+      "id": 90,
+      "description": "Garfos"
+    },
+    {
+      "id": 100,
+      "description": "Grupos"
+    },
+    {
+      "id": 110,
+      "description": "Guidões"
+    },
+    {
+      "id": 120,
+      "description": "Pedivelas"
+    },
+    {
+      "id": 130,
+      "description": "Motores & Baterias"
+    },
+    {
+      "id": 140,
+      "description": "Desviadores Traseiro"
+    },
+    {
+      "id": 150,
+      "description": "Para-Lama"
+    },
+    {
+      "id": 160,
+      "description": "Pedais"
+    },
+    {
+      "id": 170,
+      "description": "Pinhões"
+    },
+    {
+      "id": 180,
+      "description": "Potenciômetros"
+    },
+    {
+      "id": 190,
+      "description": "Coroas"
+    },
+    {
+      "id": 200,
+      "description": "Manoplas & Fitas"
+    },
+    {
+      "id": 210,
+      "description": "Selins"
+    },
+    {
+      "id": 220,
+      "description": "Correntes"
+    },
+    {
+      "id": 230,
+      "description": "Desviadores Dianteiro"
+    },
+    {
+      "id": 240,
+      "description": "Espigões"
+    },
+    {
+      "description": "Categoria 1",
+      "id": "2be1"
+    },
+    {
+      "description": "Categoria 2",
+      "id": "4575"
+    },
+    {
+      "description": "Categoria 4",
+      "id": "1f0e"
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "description": "Cannondale"
+    },
+    {
+      "id": 2,
+      "description": "BBB"
+    },
+    {
+      "id": 3,
+      "description": "Ergon"
+    },
+    {
+      "id": 4,
+      "description": "Zefal"
+    },
+    {
+      "id": 5,
+      "description": "SunRace"
+    },
+    {
+      "id": 6,
+      "description": "Magura"
+    },
+    {
+      "id": 7,
+      "description": "Ventura"
+    },
+    {
+      "id": 8,
+      "description": "Campagnolo"
+    },
+    {
+      "id": 9,
+      "description": "SR Suntour"
+    },
+    {
+      "id": 10,
+      "description": "DVO"
+    },
+    {
+      "id": 11,
+      "description": "DT Swiss"
+    },
+    {
+      "id": 12,
+      "description": "KCNC"
+    },
+    {
+      "id": 13,
+      "description": "Ergotec"
+    },
+    {
+      "id": 14,
+      "description": "FSA"
+    },
+    {
+      "id": 15,
+      "description": "Ceramicspeed"
+    },
+    {
+      "id": 16,
+      "description": "Look"
+    },
+    {
+      "id": 17,
+      "description": "Cranckbrothers"
+    },
+    {
+      "id": 18,
+      "description": "Vision"
+    },
+    {
+      "id": 19,
+      "description": "XLC"
+    },
+    {
+      "id": 20,
+      "description": "Elite"
+    },
+    {
+      "id": 21,
+      "description": "SKS"
+    },
+    {
+      "id": 22,
+      "description": "Classified"
+    },
+    {
+      "id": 23,
+      "description": "Ritchey"
+    },
+    {
+      "id": 24,
+      "description": "Rotor"
+    },
+    {
+      "id": 25,
+      "description": "Shimano"
+    },
+    {
+      "id": 26,
+      "description": "Bosh"
+    },
+    {
+      "id": 27,
+      "description": "Giant"
+    },
+    {
+      "id": 28,
+      "description": "Favero"
+    },
+    {
+      "id": 29,
+      "description": "E-thirteen"
+    }
+  ]
+}

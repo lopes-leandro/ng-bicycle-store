@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CategoriesService } from '@services/categories.service';
+import { map } from 'rxjs';
+import { CategoryView } from 'src/app/shared/models/categories';
 
 enum TITLE_ENUM {
-  CRIAR =  'Criar Categoria',
+  CRIAR = 'Criar Categoria',
   EDITAR = 'Editar Categoria'
 }
 @Component({
@@ -13,41 +16,90 @@ enum TITLE_ENUM {
 })
 export class CategoryFormComponent implements OnInit {
 
+  private readonly categoriesService$ = inject(CategoriesService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+  private fb = inject(FormBuilder);
+
+  private categoryId!: string;
+
   title: string | null = null;
-  btnSubmitDisabled = true;
+  isDisabledButtonSubmit = true;
+  isVisibleControlId = false;
+  formCategory!: FormGroup;
 
-  formModel = this.fb.group({
-    name: new FormControl('', [Validators.required, Validators.minLength(5)]),
-  });
-
-  cars = [
-    { id: 1, name: 'Volvo' },
-    { id: 2, name: 'Saab', disabled: true },
-    { id: 3, name: 'Opel' },
-    { id: 4, name: 'Audi' },
-  ];
-
-  constructor(private route: ActivatedRoute, private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit(): void {
-    const categoryId = this.route.snapshot.paramMap.get('id');
-    console.log(categoryId);
-    
-    if (categoryId)
-    {
-      this.title = TITLE_ENUM.EDITAR;
-    } else {
-      this.title = TITLE_ENUM.CRIAR;
-    }
+    this.createFormCategory();
 
-    this.formModel.statusChanges.subscribe(status => {
+    this.checkRouteParameter();
+
+    this.formCategory.statusChanges.subscribe(status => {
       console.log('Status do formulário:', status);
       if (status === 'VALID') {
-        this.btnSubmitDisabled = false;
+        this.isDisabledButtonSubmit = false;
       } else {
-        this.btnSubmitDisabled = true;
+        this.isDisabledButtonSubmit = true;
       }
     })
+  }
+
+  onSubmit(): void {
+    if (this.formCategory.valid) {
+      if (this.categoryId) {
+        this.updateCategory(this.formCategory.value);
+      } else {
+        this.addCategory(this.formCategory.value);
+      }
+    }
+  }
+
+  private createFormCategory(): void {
+    this.formCategory = this.fb.group({
+      id: new FormControl({ value: 0, disabled: true }),
+      name: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    });
+  }
+
+  private checkRouteParameter(): void {
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.categoryId = params['id'];
+        this.title = TITLE_ENUM.EDITAR;
+        this.isVisibleControlId = true;
+        this.getCategory(this.categoryId);
+      } else {
+        this.title = TITLE_ENUM.CRIAR;
+      }
+    })
+  }
+
+  private getCategory(categoryId: string): void {
+    this.categoriesService$.getCategory(categoryId).subscribe(data => {
+      this.loadDataForEditing(data);
+    })
+  }
+
+  private addCategory(item: CategoryView): void {
+    this.categoriesService$.addCategory(item)
+      .subscribe(() => {
+        this.formCategory.reset();
+        this.router.navigate(['/categorias']);
+      });
+  }
+
+  private updateCategory(item: CategoryView): void {
+    this.categoriesService$
+      .updateCategory(this.categoryId, item)
+      .subscribe(() => {
+        this.formCategory.reset();
+        this.router.navigate(['/categorias']);
+      });
+  }
+
+  private loadDataForEditing(item: Partial<CategoryView>): void {
+    this.formCategory.patchValue(item)
   }
 
 }
