@@ -1,0 +1,88 @@
+<h2>{{title}}</h2>
+<form clrForm clrLayout="horizontal" [formGroup]="formProduct" (ngSubmit)="onSubmit()">
+    <span class="clr-required-mark">Informação Requerida</span>
+    <clr-input-container *ngIf="isVisibleControlId">
+        <label class="clr-required-mark">Id</label>
+        <input clrInput formControlName="id" />
+    </clr-input-container>
+    <clr-input-container>
+        <label class="clr-required-mark">Descrição</label>
+        <input clrInput formControlName="description" placeholder="Digite uma descrição" />
+        <!-- <clr-control-helper>Nome da categoria do produto</clr-control-helper> -->
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+        <clr-control-error *clrIfError="'minlength'; error as err">
+            Deve ter no mínimo {{ err.requiredLength }} caracteres
+        </clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label class="clr-required-mark">Quantidade</label>
+        <input clrInput formControlName="quantity" placeholder="Digite a quantidade" />
+        <!-- <clr-control-helper>Nome da categoria do produto</clr-control-helper> -->
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+        <clr-control-error *clrIfError="'min'; error as err">
+            Deve ter no mínimo {{ err.min }} quantidade
+        </clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label class="clr-required-mark">Vlr. Compra</label>
+        <input clrInput formControlName="purchase" placeholder="Digite o valor de compra" mask="separator.2"
+            thousandSeparator="," prefix="R$ " [leadZero]="true" />
+        <!-- <clr-control-helper>Nome da categoria do produto</clr-control-helper> -->
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+        <clr-control-error *clrIfError="'min'; error as err">
+            Deve ter no mínimo {{ err.min | currency:'BRL' }} no vlr. compra
+        </clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label class="clr-required-mark">Vlr. Venda</label>
+        <input clrInput formControlName="sales" placeholder="Digite o valor de venda." mask="separator.2"
+            thousandSeparator="," prefix="R$ " [leadZero]="true" />
+        <!-- <clr-control-helper>Nome da categoria do produto</clr-control-helper> -->
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+        <clr-control-error *clrIfError="'min'; error as err">
+            Deve ter no mínimo {{ err.min | currency:'BRL'}} no vlr. venda </clr-control-error>
+    </clr-input-container>
+    <clr-select-container>
+        <label class="clr-required-mark">Marca</label>
+        <select clrSelect formControlName="brand" place>
+            <option *ngFor="let brand of fakeBrands" value="{{brand.id}}">{{brand.name}}</option>
+        </select>
+        <clr-control-helper>Selecione uma marca</clr-control-helper>
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+    </clr-select-container>
+    <clr-select-container>
+        <label class="clr-required-mark">Categoria</label>
+        <select clrSelect formControlName="category" place>
+            <option *ngFor="let category of fakeCategories" value="{{category.id}}">{{category.name}}</option>
+        </select>
+        <clr-control-helper>Selecione uma categoria</clr-control-helper>
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+    </clr-select-container>
+    <clr-textarea-container>
+        <label class="clr-required-mark">Imagem</label>
+        <textarea  clrTextarea formControlName="image" style="width: 350px; height: 110px;"></textarea>
+        <clr-control-helper>Insira o base64 da sua imagem</clr-control-helper>
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+    </clr-textarea-container>
+    <!-- <div class="clr-form-control clr-row">
+        <label for="basic" class="clr-control-label clr-required-mark clr-col-12 clr-col-md-2">Custom Component</label>
+        <div class="clr-control-container clr-col-md-10 clr-col-12">
+            <div class="clr-input-wrapper">
+                <input class="clr-input" type="file" name="image" id="basic">
+            </div>
+        </div>
+    </div> -->
+    <clr-checkbox-container>
+        <label class="clr-required-mark">Ativo</label>
+        <clr-checkbox-wrapper>
+            <input type="checkbox" clrCheckbox formControlName="active" />
+        </clr-checkbox-wrapper>
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+    </clr-checkbox-container>
+    <button class="btn btn-primary" type="submit" [disabled]="isDisabledButtonSubmit">
+        <cds-icon shape="check"></cds-icon>
+        SALVAR</button>
+    <button class="btn btn-warning-outline" type="button" [routerLink]="['/estoque']">
+        <cds-icon shape="undo"></cds-icon>
+        CANCELAR</button>
+</form>

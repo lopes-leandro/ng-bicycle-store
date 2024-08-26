@@ -25,6 +25,7 @@ import {
 } from '@cds/core/icon';
 import { HeaderComponent } from '@components/header/header.component';
 import { VerticalNavComponent } from '@components/vertical-nav/vertical-nav.component';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 const icons = [
   userIcon,
@@ -56,7 +57,7 @@ const icons = [
     VerticalNavComponent,
     HttpClientModule
   ],
-  providers: [],
+  providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule {
