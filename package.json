@@ -23,6 +23,7 @@
     "@clr/ui": "^15.14.6",
     "@ng-select/ng-select": "^11.2.0",
     "json-server": "^1.0.0-beta.2",
+    "ngx-mask": "^16.4.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

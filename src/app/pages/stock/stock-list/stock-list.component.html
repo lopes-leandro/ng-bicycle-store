@@ -1,0 +1,34 @@
+<h2>Lista de Produtos</h2>
+<button class="btn btn-icon" aria-label="Nova Marca" [routerLink]="['/estoque/criar']">
+    <cds-icon shape="plus"></cds-icon>
+    Novo Produto
+</button>
+<clr-datagrid>
+    <clr-dg-column>Marca</clr-dg-column>
+    <clr-dg-column>Categoria</clr-dg-column>
+    <clr-dg-column>Nome</clr-dg-column>
+    <clr-dg-column>Qtd.</clr-dg-column>
+    <clr-dg-column>Vlr. Compra</clr-dg-column>
+    <clr-dg-column>Vlr. Venda</clr-dg-column>
+
+    <clr-dg-column>Dt. Entrada</clr-dg-column>
+
+    <clr-dg-row *ngFor="let product of products$">
+        <clr-dg-cell>{{product.brand.name}}</clr-dg-cell>
+        <clr-dg-cell>{{product.category.name}}</clr-dg-cell>
+        <clr-dg-action-overflow>
+            <button class="action-item" [routerLink]="['/estoque/editar', product.id]">
+                <cds-icon shape="form"></cds-icon>
+                Editar
+            </button>
+        </clr-dg-action-overflow>
+        <clr-dg-cell>{{product.description}}</clr-dg-cell>
+        <clr-dg-cell>{{product.quantity}}</clr-dg-cell>
+        <clr-dg-cell>{{product.vlrPurchase | mask: 'separator.2':{ thousandSeparator:',', prefix:'R$ ', leadZero:true}
+            }}</clr-dg-cell>
+        <clr-dg-cell>{{product.vlrSales | mask: 'separator.2':{ thousandSeparator:',', prefix:'R$ ', leadZero:true} }}</clr-dg-cell>
+        <clr-dg-cell>{{product.dtCreation | date:'dd/MM/yyyy'}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer *ngIf="products$">{{products$.length}} produtos</clr-dg-footer>
+</clr-datagrid>

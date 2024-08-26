@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'marcas',
     loadChildren: () => import('./pages/brands/brands.module').then(m => m.BrandsModule)
+  },
+  {
+    path: 'estoque',
+    loadChildren: () => import('./pages/stock/stock.module').then(m => m.StockModule)
   }
 ];
 
