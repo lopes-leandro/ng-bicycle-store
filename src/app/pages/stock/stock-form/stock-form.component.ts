@@ -34,7 +34,7 @@ export class StockFormComponent implements OnInit {
       description: 'Cassete Titânio MBT 11s',
       active: true,
       brand: { id: 1001, name: 'KCNC' },
-      category: { id: 1001, name: 'Cassetes' },
+      category: { id: 1001, name: 'Cassetes', active: true },
       quantity: 10,
       vlrPurchase: 320.52,
       vlrSales: 968.9,
@@ -60,15 +60,18 @@ export class StockFormComponent implements OnInit {
   fakeCategories: CategoryView[] = [
     {
       id: 1001,
-      name: 'Cassetes'
+      name: 'Cassetes',
+      active: true
     },
     {
       id: 1002,
-      name: 'Desviadores Dianteiros'
+      name: 'Desviadores Dianteiros',
+      active: true
     },
     {
       id: 1003,
-      name: 'Desviadores Traseiros'
+      name: 'Desviadores Traseiros',
+      active: true
     }
   ]
 

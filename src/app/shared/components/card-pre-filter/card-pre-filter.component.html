@@ -1,0 +1,11 @@
+<div class="card clickable" (click)="onItemClick(item)">
+    <div class="card-block">
+        <div class="card-media-flex wrap">
+            <img src="{{item.image}}" class="card-media-image" *ngIf="item.id !== -1"/>
+            <cds-icon shape="plus-circle" size="xl" status="info" *ngIf="item.id === -1"></cds-icon>
+            <div class="card-media-description">
+                <p class="card-media-text"> {{item.title}} </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/categorias',
+    redirectTo: '/f',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,18 @@ const routes: Routes = [
   {
     path: 'estoque',
     loadChildren: () => import('./pages/stock/stock.module').then(m => m.StockModule)
+  },
+  {
+    path: 'f',
+    loadChildren: () => import('./pages/catalog/catalog.module').then(m => m.CatalogModule)
+  },
+  {
+    path: 'catalogo',
+    loadComponent: () => import('./pages/catalog/catalog-list/catalog-list.component').then(m => m.CatalogListComponent),
+  },
+  {
+    path: 'catalogo/detalhe/:id',
+    loadComponent: () => import('./pages/catalog/catalog-detail/catalog-detail.component').then(m => m.CatalogDetailComponent)
   }
 ];
 

@@ -1,0 +1,51 @@
+<div class="clr-row clr-justify-content-between">
+    <div class="clr-col-lg-8 clr-col-md-7 clr-col-sm-12 clr-col">
+        <div class="clr-host">
+            <div class="clr-thumb-image-container">
+                <img src="{{sampleImage}}" alt="">
+            </div>
+            <div class="clr-image-container">
+                <img src="{{sampleImage}}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="clr-col-lg-4 clr-col-md-5 clr-col-12">
+        <h5>SR SUNTOR</h5>
+        <h2>Raidon32 Boost RLR DS</h2>
+        <h1 class="clr-text-2">{{1589.99 | mask: 'separator.2':{ thousandSeparator:',', prefix:'R$ ', leadZero:true} }}</h1>
+        <div style="display: flex; align-items: center;">
+            <button type="button" class="btn btn-icon" aria-label="settings" title="Remover" (click)="decrement()" [disabled]="isDisabledMinimus">
+                <cds-icon shape="plus"></cds-icon>
+            </button>
+            <input type="text" id="contadorInput" [(ngModel)]="count" name="count" class="clr-input-custom" disabled/>
+            <button type="button" class="btn btn-icon" aria-label="settings" title="Adicionar" (click)="increment()">
+                <cds-icon shape="plus"></cds-icon>
+            </button>
+        </div>
+        <h5 class="clr-text-1">Em estoque</h5>
+        <button type="button" class="btn btn-primary" aria-label="settings" (click)="handleAddBasket()">
+            <cds-icon shape="plus"></cds-icon>
+            adicionar
+        </button>
+        <button class="btn btn-link" [routerLink]="['/f']">Continue comprando</button>
+        <article>
+            <h2>Caracteristicas do Produto</h2>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lobortis sollicitudin dui eu scelerisque.
+                Vivamus eget dui risus. Aliquam id dictum orci. Ut efficitur ex a nisl suscipit, nec sagittis dolor
+                volutpat. Duis vehicula magna sit amet erat dapibus porttitor. Praesent ac arcu ut tellus suscipit
+                mollis.
+                Nam scelerisque tempus nulla, ac egestas justo scelerisque nec. Aenean sed fringilla ex, id ullamcorper
+                dui.
+            </p>
+            <p>Aliquam cursus, felis vel tincidunt gravida, nibh libero varius urna, quis rhoncus sapien sapien vitae
+                est.
+                Maecenas et vulputate nisl. Quisque sit amet gravida leo. Aenean eu fringilla enim, eu fermentum lorem.
+                Suspendisse interdum ipsum ut leo euismod, nec dictum urna condimentum. Praesent tempor finibus mauris,
+                vel
+                iaculis dui viverra ut. Etiam viverra, mauris a molestie ullamcorper, elit diam aliquet mi, sit amet
+                gravida
+                augue tellus vel orci.
+            </p>
+        </article>
+    </div>
+</div>
