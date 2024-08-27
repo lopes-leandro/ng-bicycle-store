@@ -21,7 +21,9 @@ import {
   undoIcon,
   checkIcon,
   formIcon,
-  plusIcon
+  plusIcon,
+  plusCircleIcon,
+  shoppingCartIcon
 } from '@cds/core/icon';
 import { HeaderComponent } from '@components/header/header.component';
 import { VerticalNavComponent } from '@components/vertical-nav/vertical-nav.component';
@@ -40,7 +42,9 @@ const icons = [
   undoIcon,
   checkIcon,
   plusIcon,
-  formIcon
+  formIcon,
+  plusCircleIcon,
+  shoppingCartIcon
 ]
 
 @NgModule({

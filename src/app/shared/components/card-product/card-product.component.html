@@ -1,0 +1,18 @@
+<div class="card clickable" (click)="onItemClick(item)">
+    <div class="card-block">
+        <div class="card-media-flex wrap">
+            <img src="{{item.urlImage}}" class="card-media-image" alt="{{item.attrAltImage}}"/>
+        </div>
+    </div>
+    <div class="card-block">
+        <div class="card-media-description">
+            <span class="card-media-title p5">{{item.subTitle}}</span>
+        </div>
+        <div class="card-media-description">
+            <span class="card-media-text"> {{item.title}} </span>                        
+        </div>
+        <div class="card-media-description">
+            <span class="p"> {{item.value| currency:'BRL'}}</span>
+        </div>
+    </div>
+</div>

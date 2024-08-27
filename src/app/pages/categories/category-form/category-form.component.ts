@@ -59,6 +59,7 @@ export class CategoryFormComponent implements OnInit {
     this.formCategory = this.fb.group({
       id: new FormControl({ value: 0, disabled: true }),
       name: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      active: new FormControl(true),
     });
   }
 

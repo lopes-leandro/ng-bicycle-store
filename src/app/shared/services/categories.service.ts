@@ -19,7 +19,7 @@ export class CategoriesService {
 
   getCategories(): Observable<CategoryView[]> {
     return this.http
-      .get<CategoryApiModel[]>(this.apiUrl)
+      .get<CategoryApiModel[]>(`${this.apiUrl}`)
       .pipe(
         map(
           apiResponse => apiResponse.map(apiItem => this.mapToItemViewModel(apiItem))
@@ -39,7 +39,8 @@ export class CategoriesService {
   addCategory(category: CategoryView): Observable<CategoryView> {
     const item: CategoryApiModel = {
       id: category.id,
-      description: category.name
+      description: category.name,
+      flag_active: category.active
     }
     return this.http
       .post<CategoryApiModel>(this.apiUrl, item)
@@ -53,7 +54,9 @@ export class CategoriesService {
   updateCategory(categoryId: string, category: CategoryView): Observable<CategoryView> {
     const item: CategoryApiModel = {
       id: category.id,
-      description: category.name
+      description: category.name,
+      image: 'https://via.placeholder.com/141x120',
+      flag_active: category.active
     }
     return this.http
       .put<CategoryApiModel>(`${this.apiUrl}/${categoryId}`, item)
@@ -65,7 +68,8 @@ export class CategoriesService {
   private mapToItemViewModel(apiItem: CategoryApiModel): CategoryView {
     return {
       id: apiItem.id,
-      name: apiItem.description
+      name: apiItem.description,
+      active: apiItem.flag_active
     }
   }
 }
