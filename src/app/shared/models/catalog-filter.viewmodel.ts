@@ -17,15 +17,8 @@ export class CatalogListViewModel {
             id: productApi.id,
             description: productApi.description,
             quantity: productApi.quantity,
-            category: {
-                id: productApi.category.id,
-                name: productApi.category.description,
-                active: productApi.category.flag_active
-            },
-            brand: {
-                id: productApi.brand.id,
-                name: productApi.brand.description
-            },
+            categoryId: productApi.categoryId,
+            brandId: productApi.brandId,
             vlrPurchase: productApi.purchase_value,
             vlrSales: productApi.sales_value,
             dtCreation: productApi.dt_creation,

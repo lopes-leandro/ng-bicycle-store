@@ -23,7 +23,8 @@ import {
   formIcon,
   plusIcon,
   plusCircleIcon,
-  shoppingCartIcon
+  shoppingCartIcon,
+  trashIcon,
 } from '@cds/core/icon';
 import { HeaderComponent } from '@components/header/header.component';
 import { VerticalNavComponent } from '@components/vertical-nav/vertical-nav.component';
@@ -44,7 +45,8 @@ const icons = [
   plusIcon,
   formIcon,
   plusCircleIcon,
-  shoppingCartIcon
+  shoppingCartIcon,
+  trashIcon
 ]
 
 @NgModule({

@@ -1,12 +1,12 @@
-import { Brand, BrandApi } from "./brand.model";
-import { CategoryApiModel, CategoryView } from "./categories";
+import { Brand, BrandApi } from './brand.model';
+import { Category, CategoryApi } from './category.model';
 
 export interface Product {
-    id: number;
+    id: string;
     description: string;
     quantity: number;
-    category: CategoryView;
-    brand: Brand;
+    categoryId: string;
+    brandId: string;
     dtCreation: string;
     active: boolean;
     image: string;
@@ -15,14 +15,24 @@ export interface Product {
 }
 
 export interface ProductApi {
-    id: number;
+    id: string;
     description: string;
-    category: CategoryApiModel;
-    brand: BrandApi;
+    categoryId: string;
+    brandId: string;
     purchase_value: number;
     sales_value: number;
     dt_creation: string;
     flag_active: boolean;
     image: string;
     quantity: number;
+}
+
+export interface ProductFilter extends Product {
+    category: Category;
+    brand: Brand
+}
+
+export interface ProductApiFilter extends ProductApi {
+    category: CategoryApi;
+    brand: BrandApi
 }

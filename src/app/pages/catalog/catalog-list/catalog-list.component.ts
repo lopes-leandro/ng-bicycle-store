@@ -50,8 +50,8 @@ export class CatalogListComponent implements OnInit, OnDestroy {
   private readonly catalogService$ = inject(CatalogService);
   private destroy$ = new Subject<void>();
 
-  private productByCategoryId!: string;
-  productsList!: CardProductModel[];
+  private categoryId!: string;
+  cardProductList!: CardProductModel[];
   selection!: [{ id: number, description: string }];
 
   dataFilterList: ProductsFilterListModel[] = [
@@ -114,7 +114,7 @@ export class CatalogListComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  trackById(index: number, item: CardProductModel): number {
+  trackById(index: number, item: CardProductModel): string {
     return item.id
   }
 
@@ -151,7 +151,7 @@ export class CatalogListComponent implements OnInit, OnDestroy {
       takeUntil(this.destroy$),
       map(params => {
         if (params['id']) {
-          this.productByCategoryId = params['id'];
+          this.categoryId = params['id'];
           this.getProductByPreFilter();
         } else {
           this.getProducts()
@@ -161,17 +161,17 @@ export class CatalogListComponent implements OnInit, OnDestroy {
   }
 
   private getProductByPreFilter(): void {
-    this.catalogService$.getProductsByCategoryId(this.productByCategoryId)
+    this.catalogService$.getProductsByCategoryId(this.categoryId)
       .pipe(
         takeUntil(this.destroy$),
         map(
           productsApi => {
-            this.productsList = [
+            this.cardProductList = [
               ...productsApi.map(
                 m => (
                   {
                     id: m.id,
-                    subTitle: m.brand.name,
+                    subTitle: m.brandId,
                     title: m.description,
                     value: m.vlrSales,
                     urlImage: m.image,
@@ -192,12 +192,12 @@ export class CatalogListComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
         map(
           productsApi =>
-            this.productsList = [
+            this.cardProductList = [
               ...productsApi.map(
                 m => (
                   {
                     id: m.id,
-                    subTitle: m.brand.name,
+                    subTitle: m.brandId,
                     title: m.description,
                     value: m.vlrSales,
                     urlImage: m.image,

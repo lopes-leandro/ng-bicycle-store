@@ -1,32 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '@models/product.model';
-import { Brand } from '@models/brand.model';
-import { CategoryView } from '@models/categories';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Product, ProductFilter } from '@models/product.model';
+import { ProductService } from '@services/product.service';
+import { map, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-stock-list',
   templateUrl: './stock-list.component.html',
   styleUrls: ['./stock-list.component.scss']
 })
-export class StockListComponent implements OnInit {
+export class StockListComponent implements OnInit, OnDestroy {
 
-  products$!: Product[];
-
+  private readonly productService$ = inject(ProductService);
+  private destroy$ = new Subject<void>();
+  products$!: ProductFilter[];
+  
   ngOnInit(): void {
-    this.products$ = [
-      {
-        id: 10001,
-        description: 'Cassete Titânio MBT 11s',
-        active: true,
-        brand: { id: 1001, name: 'Kcnc' },
-        category: { id: 1001, name: 'Cassetes', active: true },
-        quantity: 10,
-        vlrPurchase: 320.52,
-        vlrSales: 968.9,
-        image: '',
-        dtCreation: new Date().toISOString()
-      }
-    ];
-
+    this.loadProducts();
   }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private loadProducts(): void {
+    this.productService$
+      .getProductsEmbed()
+      .pipe(
+        takeUntil(this.destroy$),
+        map(m => this.products$ = m))
+      .subscribe();
+  }
+
 }

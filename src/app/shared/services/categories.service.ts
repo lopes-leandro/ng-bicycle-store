@@ -17,9 +17,10 @@ export class CategoriesService {
 
   constructor() { }
 
-  getCategories(): Observable<CategoryView[]> {
+  getCategories(token?: string): Observable<CategoryView[]> {
+    const apiUlrFilter = token ? `${this.apiUrl}?${token}` : this.apiUrl
     return this.http
-      .get<CategoryApiModel[]>(`${this.apiUrl}`)
+      .get<CategoryApiModel[]>(apiUlrFilter)
       .pipe(
         map(
           apiResponse => apiResponse.map(apiItem => this.mapToItemViewModel(apiItem))

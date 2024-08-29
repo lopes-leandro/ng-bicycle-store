@@ -16,9 +16,10 @@ export class BrandsService {
 
   constructor() { }
 
-  getBrands(): Observable<Brand[]> {
+  getBrands(token?: string): Observable<Brand[]> {
+    const apiUrlFilter  = token ? `${this.apiUrl}?${token}` : this.apiUrl;
     return this.http
-      .get<BrandApi[]>(this.apiUrl)
+      .get<BrandApi[]>(apiUrlFilter)
       .pipe(
         map(
           brandApi => brandApi.map(BrandViewModel.fromApi)

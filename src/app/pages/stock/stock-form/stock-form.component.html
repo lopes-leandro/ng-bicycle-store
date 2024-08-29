@@ -25,7 +25,7 @@
     </clr-input-container>
     <clr-input-container>
         <label class="clr-required-mark">Vlr. Compra</label>
-        <input clrInput formControlName="purchase" placeholder="Digite o valor de compra" mask="separator.2"
+        <input clrInput formControlName="vlrPurchase" placeholder="Digite o valor de compra" mask="separator.2"
             thousandSeparator="," prefix="R$ " [leadZero]="true" />
         <!-- <clr-control-helper>Nome da categoria do produto</clr-control-helper> -->
         <clr-control-error>Este é um campo obrigatório</clr-control-error>
@@ -35,7 +35,7 @@
     </clr-input-container>
     <clr-input-container>
         <label class="clr-required-mark">Vlr. Venda</label>
-        <input clrInput formControlName="sales" placeholder="Digite o valor de venda." mask="separator.2"
+        <input clrInput formControlName="vlrSales" placeholder="Digite o valor de venda." mask="separator.2"
             thousandSeparator="," prefix="R$ " [leadZero]="true" />
         <!-- <clr-control-helper>Nome da categoria do produto</clr-control-helper> -->
         <clr-control-error>Este é um campo obrigatório</clr-control-error>
@@ -44,16 +44,16 @@
     </clr-input-container>
     <clr-select-container>
         <label class="clr-required-mark">Marca</label>
-        <select clrSelect formControlName="brand" place>
-            <option *ngFor="let brand of fakeBrands" value="{{brand.id}}">{{brand.name}}</option>
+        <select clrSelect formControlName="brandId">
+            <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.name}}</option>
         </select>
         <clr-control-helper>Selecione uma marca</clr-control-helper>
         <clr-control-error>Este é um campo obrigatório</clr-control-error>
     </clr-select-container>
     <clr-select-container>
         <label class="clr-required-mark">Categoria</label>
-        <select clrSelect formControlName="category" place>
-            <option *ngFor="let category of fakeCategories" value="{{category.id}}">{{category.name}}</option>
+        <select clrSelect formControlName="categoryId">
+            <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
         </select>
         <clr-control-helper>Selecione uma categoria</clr-control-helper>
         <clr-control-error>Este é um campo obrigatório</clr-control-error>

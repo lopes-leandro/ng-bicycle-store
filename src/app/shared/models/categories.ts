@@ -4,6 +4,7 @@ interface BaseModel {
     active: boolean;
 }
 
+
 export interface CategoryApiModel {
     id: number;
     description: string;
