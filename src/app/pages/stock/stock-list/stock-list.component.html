@@ -4,29 +4,40 @@
     Novo Produto
 </button>
 <clr-datagrid>
+    <!-- <clr-dg-column></clr-dg-column> -->
+    <clr-dg-column>Descrição</clr-dg-column>
     <clr-dg-column>Marca</clr-dg-column>
     <clr-dg-column>Categoria</clr-dg-column>
-    <clr-dg-column>Nome</clr-dg-column>
     <clr-dg-column>Qtd.</clr-dg-column>
     <clr-dg-column>Vlr. Compra</clr-dg-column>
     <clr-dg-column>Vlr. Venda</clr-dg-column>
-
     <clr-dg-column>Dt. Entrada</clr-dg-column>
 
     <clr-dg-row *ngFor="let product of products$">
-        <clr-dg-cell>{{product.brand.name}}</clr-dg-cell>
-        <clr-dg-cell>{{product.category.name}}</clr-dg-cell>
         <clr-dg-action-overflow>
             <button class="action-item" [routerLink]="['/estoque/editar', product.id]">
                 <cds-icon shape="form"></cds-icon>
                 Editar
             </button>
         </clr-dg-action-overflow>
+        <!-- <clr-dg-cell>
+            <div style="display:inline-flex;">
+                <div style="cursor: pointer; width: fit-content; margin-right: .5rem;">
+                    <cds-icon shape="form" [routerLink]="['/estoque/editar', product.id]"></cds-icon>
+                </div>
+                <div style="cursor: pointer; width: fit-content;">
+                    <cds-icon shape="trash" [routerLink]="['/estoque/editar', product.id]"></cds-icon>
+                </div>
+            </div>
+        </clr-dg-cell> -->
         <clr-dg-cell>{{product.description}}</clr-dg-cell>
+        <clr-dg-cell>{{product.category.name}}</clr-dg-cell>
+        <clr-dg-cell>{{product.brand.name}}</clr-dg-cell>
         <clr-dg-cell>{{product.quantity}}</clr-dg-cell>
         <clr-dg-cell>{{product.vlrPurchase | mask: 'separator.2':{ thousandSeparator:',', prefix:'R$ ', leadZero:true}
             }}</clr-dg-cell>
-        <clr-dg-cell>{{product.vlrSales | mask: 'separator.2':{ thousandSeparator:',', prefix:'R$ ', leadZero:true} }}</clr-dg-cell>
+        <clr-dg-cell>{{product.vlrSales | mask: 'separator.2':{ thousandSeparator:',', prefix:'R$ ', leadZero:true}
+            }}</clr-dg-cell>
         <clr-dg-cell>{{product.dtCreation | date:'dd/MM/yyyy'}}</clr-dg-cell>
     </clr-dg-row>
 

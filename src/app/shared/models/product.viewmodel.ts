@@ -1,12 +1,12 @@
-import { Product, ProductApi } from './product.model';
+import { Product, ProductApi, ProductApiFilter, ProductFilter } from './product.model';
 
-export class ProductViewmodel {
+export class ProductViewModel {
     public static fromApi(productApi: ProductApi): Product {
         return {
             id: productApi.id,
             description: productApi.description,
-            brand: { ...productApi.brand, name: productApi.brand.description },
-            category: { ...productApi.category, name: productApi.category.description},
+            brandId: productApi.brandId,
+            categoryId: productApi.categoryId,
             quantity: productApi.quantity,
             vlrPurchase: productApi.purchase_value,
             vlrSales: productApi.sales_value,
@@ -20,8 +20,8 @@ export class ProductViewmodel {
         return {
             id: product.id,
             description: product.description,
-            brand: {...product.brand, description: product.brand.name},
-            category: {...product.category, description: product.category.name},
+            brandId: product.brandId,
+            categoryId: product.categoryId,
             purchase_value: product.vlrPurchase,
             sales_value: product.vlrSales,
             quantity: product.quantity,
@@ -30,4 +30,24 @@ export class ProductViewmodel {
             dt_creation: product.dtCreation
         }
     }
+
+    public static fromApiFilter(productApi: ProductApiFilter): ProductFilter {
+        return {
+            ...productApi,
+            active: productApi.flag_active,
+            dtCreation: productApi.dt_creation,
+            vlrPurchase: productApi.purchase_value,
+            vlrSales: productApi.sales_value,
+            category: {
+                id: productApi.category.id, 
+                name: productApi.category.description,
+                active: productApi.category.flag_active
+            },
+            brand: {
+                id: productApi.brand.id,
+                name: productApi.brand.description
+            }
+        }
+    }
 }
+

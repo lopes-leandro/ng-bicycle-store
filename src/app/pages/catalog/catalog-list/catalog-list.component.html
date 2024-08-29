@@ -54,7 +54,7 @@
         </clr-vertical-nav>
     </div> -->
     <div class="clr-col-xl-3 clr-col-lg-4 clr-col-md-5 clr-col-sm-6 clr-col-12"
-        *ngFor="let product of productsList; trackBy: trackById">
+        *ngFor="let product of cardProductList; trackBy: trackById">
         <app-card-product [item]="product" (onHandleClick)="handleSelectedCard($event)"></app-card-product>
     </div>
 </div>

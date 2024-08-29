@@ -1,5 +1,5 @@
 export interface CardProductModel {
-    id: number;
+    id: string;
     title: string;
     subTitle: string;
     value: number;
