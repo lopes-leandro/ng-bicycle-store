@@ -1,6 +1,6 @@
 <div class="clr-row">
     <div class="clr-col">
-        <form clrForm>
+        <!-- <form clrForm>
             <clr-combobox-container>
                 <label>Categorias</label>
                 <clr-combobox [(ngModel)]="selection" name="multiSelect" clrMulti="true"
@@ -32,29 +32,12 @@
                     </clr-options>
                 </clr-combobox>
             </clr-combobox-container>
-        </form>
+        </form> -->
 
     </div>
     <div class="clr-break-row"></div>
-    <!-- <div class="clr-col clr-col-sm-5 clr-col-md-5 clr-col-lg-3 clr-col-xl-3">
-        <clr-vertical-nav>
-            <h3 style="margin-left: 1em; margin-top: 0;">Filtros</h3>
-            <div class="nav-divider"></div>
-            <clr-vertical-nav-group *ngFor="let category of dataFilterList">
-                {{category.title}}
-                <clr-vertical-nav-group-children *clrIfExpanded="true">
-                    <clr-checkbox-wrapper style="padding-left: 2em; padding-top: 0.2em; padding-bottom: 0.2em;"
-                        *ngFor="let item of category.itens">
-                        <input type="checkbox" clrCheckbox value="{{item.id}}" name="{{item.id}}"
-                            (change)="checkedItemFilter(item)" />
-                        <label>{{item.description}}</label>
-                    </clr-checkbox-wrapper>
-                </clr-vertical-nav-group-children>
-            </clr-vertical-nav-group>
-        </clr-vertical-nav>
-    </div> -->
     <div class="clr-col-xl-3 clr-col-lg-4 clr-col-md-5 clr-col-sm-6 clr-col-12"
-        *ngFor="let product of cardProductList; trackBy: trackById">
+        *ngFor="let product of cardCatalogList; trackBy: trackById">
         <app-card-product [item]="product" (onHandleClick)="handleSelectedCard($event)"></app-card-product>
     </div>
 </div>

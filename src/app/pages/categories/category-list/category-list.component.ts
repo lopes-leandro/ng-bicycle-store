@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Category } from '@models/category.model';
 import { CategoriesService } from '@services/categories.service';
 import { Subject, takeUntil } from 'rxjs';
-import { CategoryView } from 'src/app/shared/models/categories';
 import { v7 as uuid7 } from "uuid";
 
 @Component({
@@ -13,7 +13,7 @@ export class CategoryListComponent implements OnInit, OnDestroy {
 
   private categoriesService = inject(CategoriesService);
   private destroy$ = new Subject<void>();
-  categories$!: CategoryView[];
+  categories$!: Category[];
 
   ngOnInit(): void {
     this.getCategories();

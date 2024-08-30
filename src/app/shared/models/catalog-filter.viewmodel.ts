@@ -4,9 +4,7 @@ import { Product, ProductApi } from "./product.model";
 export class CatalogFilterViewModel {
     public static fromApi(catalogApi: CatalogApi): Catalog {
         return {
-            id: catalogApi.id,
-            name: catalogApi.description,
-            image: catalogApi.image || ''
+            ...catalogApi
         }
     }
 }

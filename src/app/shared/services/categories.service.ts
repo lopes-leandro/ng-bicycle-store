@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { CategoryApiModel, CategoryView } from '@models/categories';
+import { Category, CategoryApi } from '@models/category.model';
+import { CategoryViewModel } from '@models/category.viewmodel';
 
 
 
@@ -17,20 +19,24 @@ export class CategoriesService {
 
   constructor() { }
 
-  getCategories(token?: string): Observable<CategoryView[]> {
-    const apiUlrFilter = token ? `${this.apiUrl}?${token}` : this.apiUrl
+  getCategories(flagActive?: boolean): Observable<Category[]> {
+    let params = new HttpParams();
+    if (flagActive !== undefined)
+    {
+      params = params.set('flag_active', flagActive);
+    }
     return this.http
-      .get<CategoryApiModel[]>(apiUlrFilter)
+      .get<CategoryApi[]>(this.apiUrl, {params})
       .pipe(
         map(
-          apiResponse => apiResponse.map(apiItem => this.mapToItemViewModel(apiItem))
+          apiResponse => apiResponse.map(apiItem => CategoryViewModel.fromApi(apiItem))
         )
       )
   }
 
-  getCategory(id: string): Observable<CategoryView> {
+  getCategory(categoryId: string): Observable<CategoryView> {
     return this.http
-      .get<CategoryApiModel[]>(`${this.apiUrl}?id=${id}`)
+      .get<CategoryApiModel[]>(`${this.apiUrl}?id=${categoryId}`)
       .pipe(
         map(
           apiResponse => this.mapToItemViewModel(apiResponse[0]))

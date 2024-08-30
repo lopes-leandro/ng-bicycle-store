@@ -2,7 +2,7 @@
   "categories": [
     {
       "description": "Acessórios",
-      "image": "https://via.placeholder.com/141x120",
+      "image": "data:image/jpeg;base64,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",
       "flag_active": true,
       "id": "01919c04-16ae-7003-bd7c-4bc5a16470ff"
     },
@@ -145,7 +145,7 @@
       "image": "data:image/jpeg;base64,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"
     },
     {
-      "description": "dfgsdfg",
+      "description": "Indefinida",
       "image": "https://via.placeholder.com/141x120",
       "flag_active": false,
       "id": "01919c16-7000-7003-bd7d-0bd275527b8b"
@@ -154,7 +154,8 @@
   "brands": [
     {
       "description": "Cannondale",
-      "id": "01919c19-38c7-7eed-abce-716f3504d928"
+      "id": "01919c19-38c7-7eed-abce-716f3504d928",
+      "flag_active": true
     },
     {
       "id": "01919c1c-1574-7eed-abce-7f676dd59398",
@@ -297,9 +298,9 @@
       "flag_active": true
     },
     {
-      "id": "01919c2f-2be5-7eed-abcf-5d234f97cbb2",
-      "description": "Nova Era",
-      "flag_active": true
+      "description": "Nova Era 2",
+      "flag_active": true,
+      "id": "01919c2f-2be5-7eed-abcf-5d234f97cbb2"
     }
   ],
   "products": [
@@ -307,7 +308,7 @@
       "id": "01919c30-e8b9-7eed-abcf-63ffd9e8507d",
       "description": "Suporte de Descanso Kickstand",
       "brandId": "01919c19-38c7-7eed-abce-716f3504d928",
-      "categoryId": "01919c08-29fe-7003-bd7c-578cbda14317",
+      "categoryId": "01919c04-16ae-7003-bd7c-4bc5a16470ff",
       "purchase_value": "2.00",
       "sales_value": "3.00",
       "quantity": "59",
@@ -346,7 +347,7 @@
       "purchase_value": 2.52,
       "sales_value": 14.22,
       "quantity": "40",
-      "image": "g",
+      "image": "data:image/webp;base64,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",
       "flag_active": false,
       "dt_creation": "2024-08-25T19:22:41.000Z"
     },
@@ -474,84 +475,72 @@
       "id": "01919a81-1393-7887-ab6a-65456db51d03",
       "description": "MVP Product",
       "brandId": "01919c19-38c7-7eed-abce-716f3504d928",
-      "categoryId": "01919c08-29fe-7003-bd7c-578cbda14317",
+      "categoryId": "01919c16-7000-7003-bd7d-0bd275527b8b",
       "purchase_value": "1.00",
       "sales_value": "1.00",
       "quantity": "20",
       "image": "sdf",
-      "flag_active": true,
+      "flag_active": false,
       "dt_creation": "2024-08-28T07:19:56.619Z"
-    },
-    {
-      "id": "01919a80-d1db-7887-ab6a-5589fab212a0",
-      "description": "Suporte de Descanso Kickstand",
-      "brandId": "01919c1d-b7d3-7eed-abce-8a2358ea4748",
-      "categoryId": "01919c04-16ae-7003-bd7c-4bc5a16470ff",
-      "purchase_value": "0.00",
-      "sales_value": "0.00",
-      "quantity": "10",
-      "image": "lhkj",
-      "flag_active": true,
-      "dt_creation": "2024-08-28T08:21:33.043Z"
     },
     {
       "id": "01919a80-7743-7887-ab6a-406ebc14a124",
       "description": "sdfasdf",
       "brandId": "01919c28-ce41-7eed-abce-d883a44e9d77",
-      "categoryId": "01919c10-4d13-7003-bd7c-839317c6aba4",
+      "categoryId": "01919c16-7000-7003-bd7d-0bd275527b8b",
       "purchase_value": "20.52",
       "sales_value": "129.99",
       "quantity": "10",
       "image": "asdf",
-      "flag_active": true,
+      "flag_active": false,
       "dt_creation": "2024-08-28T09:14:52.855Z"
     },
     {
       "id": "01919a7f-83c2-7887-ab6a-326df2405e1e",
       "description": "Teste UUID",
       "brandId": "01919c1f-cc76-7eed-abce-9d7e0fa4a001",
-      "categoryId": "01919c08-29fe-7003-bd7c-578cbda14317",
+      "categoryId": "01919c16-7000-7003-bd7d-0bd275527b8b",
       "purchase_value": "1.00",
       "sales_value": "1.00",
       "quantity": "1",
       "image": ",",
-      "flag_active": true,
+      "flag_active": false,
       "dt_creation": "2024-08-28T19:12:12.923Z"
     },
     {
       "id": "01919a7e-494b-7887-ab6a-245ed427e202",
       "description": "asfsdfgsdfd",
       "brandId": "01919c28-ce41-7eed-abce-d883a44e9d77",
-      "categoryId": "01919c10-f654-7003-bd7c-8cf4069741f4",
+      "categoryId": "01919c16-7000-7003-bd7d-0bd275527b8b",
       "purchase_value": "1.00",
       "sales_value": "1.00",
       "quantity": "asdf",
       "image": "11",
-      "flag_active": true,
+      "flag_active": false,
       "dt_creation": "2024-08-28T19:14:18.981Z"
     },
     {
       "id": "01919a6f-a3a0-7ff0-9ef0-d6efc0eb862c",
       "description": "asfasdfasdfas",
       "brandId": "01919c27-741d-7eed-abce-d0c126f4280a",
-      "categoryId": "01919c10-f654-7003-bd7c-8cf4069741f4",
+      "categoryId": "01919c16-7000-7003-bd7d-0bd275527b8b",
       "purchase_value": "1.00",
       "sales_value": "1.00",
       "quantity": "20",
       "image": "d",
-      "flag_active": true,
+      "flag_active": false,
       "dt_creation": "2024-08-28T19:14:41.946Z"
     },
     {
       "id": "01919a6a-4955-722b-a296-5d685a3c3b09",
       "description": "sdfgsdgsdfgsdfg",
       "brandId": "01919c26-6192-7eed-abce-cb62cfaebae9",
-      "categoryId": "01919c0f-7c1d-7003-bd7c-7f9c41c051b9",
+      "categoryId": "01919c16-7000-7003-bd7d-0bd275527b8b",
       "purchase_value": "1.00",
       "sales_value": "1.00",
       "quantity": "1",
-      "image": "sdfgsdfg",
-      "flag_active": true,
+      "image": "https://via.placeholder.com/141x120",
+      "flag_active": false,
       "dt_creation": "2024-08-28T19:15:42.549Z"
     }
   ]

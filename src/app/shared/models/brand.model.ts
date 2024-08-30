@@ -1,9 +1,11 @@
 export interface Brand {
-    id: number;
+    id: string;
     name: string;
+    active: boolean;
 }
 
 export interface BrandApi {
-    id: number;
+    id: string;
     description: string;
+    flag_active: boolean;
 }

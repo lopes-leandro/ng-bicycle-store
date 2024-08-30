@@ -45,7 +45,8 @@ export class ProductViewModel {
             },
             brand: {
                 id: productApi.brand.id,
-                name: productApi.brand.description
+                name: productApi.brand.description,
+                active: productApi.brand.flag_active
             }
         }
     }

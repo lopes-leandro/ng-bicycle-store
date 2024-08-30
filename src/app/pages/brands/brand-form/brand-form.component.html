@@ -14,6 +14,13 @@
             Deve ter no mínimo {{ err.requiredLength }} caracteres
         </clr-control-error>
     </clr-input-container>
+    <clr-checkbox-container>
+        <label class="clr-required-mark">Ativo</label>
+        <clr-checkbox-wrapper>
+            <input type="checkbox" clrCheckbox formControlName="active" />
+        </clr-checkbox-wrapper>
+        <clr-control-error>Este é um campo obrigatório</clr-control-error>
+    </clr-checkbox-container>
     <button class="btn btn-primary" type="submit" [disabled]="isDisabledButtonSubmit">
         <cds-icon shape="check"></cds-icon>
         SALVAR</button>

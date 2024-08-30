@@ -1,9 +1,17 @@
-import { CategoryApiModel } from './categories';
+import { Brand } from './brand.model';
 
-export interface Catalog {
-    id: number;
-    name: string;
+interface CatalogBase {
+    id: string;
+    description: string;
     image: string;
+    active: boolean;
 }
 
-export interface CatalogApi extends CategoryApiModel {}
+export interface CatalogApi extends Catalog{}
+
+export interface CatalogPreFilter extends CatalogBase{}
+
+export interface Catalog extends CatalogBase {
+    vlrSales: number;
+    brand: Brand | null;
+}
