@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '@services/categories.service';
-import { map } from 'rxjs';
+import { map, Subject, takeUntil } from 'rxjs';
 import { CategoryView } from 'src/app/shared/models/categories';
 
 enum TITLE_ENUM {
@@ -20,6 +20,7 @@ export class CategoryFormComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private fb = inject(FormBuilder);
+  private destroy$ = new Subject<void>();
 
   private categoryId!: string;
 
@@ -35,14 +36,16 @@ export class CategoryFormComponent implements OnInit {
 
     this.checkRouteParameter();
 
-    this.formCategory.statusChanges.subscribe(status => {
-      console.log('Status do formulário:', status);
-      if (status === 'VALID') {
-        this.isDisabledButtonSubmit = false;
-      } else {
-        this.isDisabledButtonSubmit = true;
-      }
-    })
+    this.formCategory.statusChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(status => {
+        console.log('Status do formulário:', status);
+        if (status === 'VALID') {
+          this.isDisabledButtonSubmit = false;
+        } else {
+          this.isDisabledButtonSubmit = true;
+        }
+      })
   }
 
   onSubmit(): void {
@@ -64,26 +67,30 @@ export class CategoryFormComponent implements OnInit {
   }
 
   private checkRouteParameter(): void {
-    this.route.params.subscribe(params => {
-      if (params['id']) {
-        this.categoryId = params['id'];
-        this.title = TITLE_ENUM.EDITAR;
-        this.isVisibleControlId = true;
-        this.getCategory(this.categoryId);
-      } else {
-        this.title = TITLE_ENUM.CRIAR;
-      }
-    })
+    const paramsId = this.route.snapshot.paramMap.get('id');
+    if (paramsId) {
+      this.categoryId = paramsId;
+      this.title = TITLE_ENUM.EDITAR;
+      this.isVisibleControlId = true;
+      this.getCategory(this.categoryId);
+    } else {
+      this.title = TITLE_ENUM.CRIAR;
+    }
   }
 
   private getCategory(categoryId: string): void {
-    this.categoriesService$.getCategory(categoryId).subscribe(data => {
-      this.loadDataForEditing(data);
-    })
+    this.categoriesService$
+      .getCategory(categoryId)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(data => {
+        this.loadDataForEditing(data);
+      })
   }
 
   private addCategory(item: CategoryView): void {
-    this.categoriesService$.addCategory(item)
+    this.categoriesService$
+      .addCategory(item)
+      .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
         this.formCategory.reset();
         this.router.navigate(['/categorias']);
@@ -93,6 +100,7 @@ export class CategoryFormComponent implements OnInit {
   private updateCategory(item: CategoryView): void {
     this.categoriesService$
       .updateCategory(this.categoryId, item)
+      .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
         this.formCategory.reset();
         this.router.navigate(['/categorias']);

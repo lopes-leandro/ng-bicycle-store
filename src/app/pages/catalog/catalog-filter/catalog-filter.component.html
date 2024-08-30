@@ -1,6 +1,6 @@
 <app-title [title]="'Peças de bicicletas'" [description]="'Encontre uma grande variedade de produtos para ciclismo.'"></app-title>
 <div class="clr-row">
-    <div class="clr-col clr-col-sm-6 clr-col-md-4 clr-col-lg-3 clr-col-xl-2" *ngFor="let item of catalogFilterList; trackBy: trackById">
-        <app-card-pre-filter [item]="item" (onHandleClick)="onHandleSelectedFilter($event)"></app-card-pre-filter>
+    <div class="clr-col clr-col-sm-6 clr-col-md-4 clr-col-lg-3 clr-col-xl-2" *ngFor="let card of cardPreFilterList; trackBy: trackById">
+        <app-card-pre-filter [item]="card" (onHandleClick)="onHandleSelectedFilter($event)"></app-card-pre-filter>
     </div>
 </div>

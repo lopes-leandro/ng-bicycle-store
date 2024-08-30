@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Product, ProductApi, ProductApiFilter, ProductFilter } from '@models/product.model';
 import { map, Observable } from 'rxjs';
@@ -27,9 +27,16 @@ export class ProductService {
       )
   }
 
-  getProducts(): Observable<Product[]> {
+  getProducts(categoryId?: string, flagActive?: boolean): Observable<Product[]> {
+    let params = new HttpParams();
+    if (categoryId !== undefined) {
+      params = params.set('categoryId', categoryId);
+    }
+    if (flagActive !== undefined) {
+      params = params.set('flag_active', flagActive)
+    }
     return this.http
-      .get<ProductApi[]>(`${this.apiUrl.products}`)
+      .get<ProductApi[]>(this.apiUrl.products, {params})
       .pipe(
         map(
           apiResponse => apiResponse.map(productApi => ProductViewModel.fromApi(productApi))

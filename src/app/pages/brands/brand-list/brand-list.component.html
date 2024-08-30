@@ -5,7 +5,7 @@
 </button>
 <clr-datagrid>
     <clr-dg-column>Nome</clr-dg-column>
-    <!-- <clr-dg-column>Creation date</clr-dg-column> -->
+    <clr-dg-column>Ativo</clr-dg-column>
 
     <clr-dg-row *ngFor="let brand of brands$">
         <clr-dg-action-overflow>
@@ -15,7 +15,7 @@
             </button>
         </clr-dg-action-overflow>
         <clr-dg-cell>{{brand.name}}</clr-dg-cell>
-        <!-- <clr-dg-cell>{{category.creation | date}}</clr-dg-cell> -->
+        <clr-dg-cell>{{brand.active ? 'Sim' : 'Não'}}</clr-dg-cell>
     </clr-dg-row>
 
     <clr-dg-footer *ngIf="brands$">{{brands$.length}} marcas</clr-dg-footer>

@@ -2,7 +2,7 @@ import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from '@models/brand.model';
-import { CategoryView } from '@models/categories';
+import { Category } from '@models/category.model';
 import { Product } from '@models/product.model';
 import { BrandsService } from '@services/brands.service';
 import { CategoriesService } from '@services/categories.service';
@@ -35,7 +35,7 @@ export class StockFormComponent implements OnInit, OnDestroy {
   isDisabledButtonSubmit = true;
   formProduct!: FormGroup;
   product!: Product;
-  categories!: CategoryView[];
+  categories!: Category[];
   brands!: Brand[];
 
   ngOnInit(): void {

@@ -29,26 +29,29 @@ export class CatalogFilterComponent implements OnInit, OnDestroy {
   private readonly router = inject(Router);
   private destroy$ = new Subject<void>();
 
-  private readonly catalog: Catalog = {
-    id: -1,
-    name: 'Todos os produtos',
+  private readonly cardPreFilterItem: CardPreFilterModel = {
+    id: '-1',
+    title: 'Todos os produtos',
     image: 'https://via.placeholder.com/141x120'
   }
-  catalogFilterList!: CardPreFilterModel[];
+  cardPreFilterList: CardPreFilterModel[] = [];
 
   ngOnInit(): void {
     this.catalogService$
-      .getPreFilter()
+      .getCatalogPreFilter()
       .pipe(
         takeUntil(this.destroy$),
-        map(catalogs => {
-          const catalogFilters = catalogs.map((f) => ({ id: f.id, image: f.image, title: f.name }));
-          const catalog = { id: this.catalog.id, image: this.catalog.image, title: this.catalog.name };
-          this.catalogFilterList = [
-            ...catalogFilters,
-            catalog
-          ];
-        })
+        map(
+          cagalogsPreFilter => {
+            this.cardPreFilterList = cagalogsPreFilter.map(catalog => (
+              {
+                id: catalog.id,
+                image: catalog.image,
+                title: catalog.description
+              }));
+            this.cardPreFilterList = [...this.cardPreFilterList, this.cardPreFilterItem];
+          }
+        )
       ).subscribe();
   }
 
@@ -57,12 +60,12 @@ export class CatalogFilterComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  trackById(index: number, card: CardPreFilterModel): number {
+  trackById(index: number, card: CardPreFilterModel): string {
     return card.id
   }
 
   onHandleSelectedFilter(card: CardPreFilterModel): void {
-    if (card.id !== -1) {
+    if (card.id !== '-1') {
       this.router.navigate(['/f/catalogo', card.id]);
     } else {
       this.router.navigate(['/catalogo']);

@@ -5,7 +5,8 @@ export class CategoryViewModel {
         return {
             id: categoryApi.id,
             name: categoryApi.description,
-            active: categoryApi.flag_active
+            active: categoryApi.flag_active,
+            image: categoryApi.image
         }
     }
 
@@ -13,7 +14,8 @@ export class CategoryViewModel {
         return {
             id: category.id,
             description: category.name,
-            flag_active: category.active
+            flag_active: category.active,
+            image: category.image
         }
     }
 }
